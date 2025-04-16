@@ -1,21 +1,33 @@
 extends CharacterBody2D
 
+signal on_game_started
 
 @export var gravity: float = 1000
 @export var jump_force: float = -400
 @export var max_speed: float = 400
 @export var rotation_speed = 2
 
+var is_game_started: bool = false
+var should_process_input: bool = true
+
 
 
 func _physics_process(delta: float) -> void:
+	#check for jump input
+	if Input.is_action_just_pressed("jump") and should_process_input:
+		jump_player()
+		if not is_game_started:
+			is_game_started = true
+			on_game_started.emit()
+		
+	if not is_game_started:
+		return
+	
+		
 	#apply gravity
 	velocity.y += gravity * delta
 	velocity.y = min(velocity.y, max_speed)
 	
-	#check for jump input
-	if Input.is_action_just_pressed("jump"):
-		jump_player()
  
 	move_and_slide()
 	
