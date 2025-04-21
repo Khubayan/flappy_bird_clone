@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://gs1sltjx8nig"]
+[gd_scene load_steps=5 format=3 uid="uid://gs1sltjx8nig"]
 
 [ext_resource type="Texture2D" uid="uid://duiy5x8u0hr7r" path="res://Assets/Sprites/background.png" id="1_rdf68"]
 [ext_resource type="Script" path="res://Scripts/Main/main.gd" id="1_u3c28"]
 [ext_resource type="PackedScene" uid="uid://cyr1mds78iv8d" path="res://Scenes/Player/player.tscn" id="2_3mg4i"]
+[ext_resource type="PackedScene" uid="uid://cdnxf5g5om82t" path="res://Scenes/Spawner/spawner.tscn" id="4_o65eb"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_u3c28")
@@ -15,5 +16,7 @@ centered = false
 
 [node name="Player" parent="." instance=ExtResource("2_3mg4i")]
 position = Vector2(221, 342)
+
+[node name="Spawner" parent="." instance=ExtResource("4_o65eb")]
 
 [connection signal="on_game_started" from="Player" to="." method="_on_player_on_game_started"]
