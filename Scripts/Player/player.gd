@@ -45,3 +45,10 @@ func jump_player() -> void:
 func rotate_player(delta: float) -> void:
 	if velocity.y > 0 and rotation < deg_to_rad(90):
 		rotation += rotation_speed * delta
+
+func stop_player_movement() -> void:
+	should_process_input = false
+
+func stop_gravity() -> void:
+	gravity = 0
+	velocity = Vector2.ZERO

@@ -20,3 +20,4 @@ position = Vector2(221, 342)
 [node name="Spawner" parent="." instance=ExtResource("4_o65eb")]
 
 [connection signal="on_game_started" from="Player" to="." method="_on_player_on_game_started"]
+[connection signal="on_obstacle_collide" from="Spawner" to="." method="_on_spawner_on_obstacle_collide"]
