@@ -7,6 +7,7 @@ signal on_player_hit_ground
 @onready var ground_1: Area2D = $Ground_1
 @onready var ground_2: Area2D = $Ground_2
 @onready var sprite_2d: Sprite2D = %Sprite2D
+@onready var game_over_sound: AudioStreamPlayer = $GameOverSound
 
 var width: int
 
@@ -30,3 +31,4 @@ func _on_ground_body_entered(body: Node2D) -> void:
 	var player_ref = body as Player
 	#player_ref.stop_player_movement()
 	player_ref.stop_gravity()
+	game_over_sound.play()
