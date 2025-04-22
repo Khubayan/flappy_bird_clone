@@ -2,6 +2,7 @@ extends Node2D
 class_name Spawner
 
 signal  on_obstacle_collide
+signal on_player_scored
 
 const OBSTACLE = preload("res://Scenes/Obstacles/obstacle.tscn")
 @onready var timer: Timer = $Timer
@@ -10,6 +11,7 @@ const OBSTACLE = preload("res://Scenes/Obstacles/obstacle.tscn")
 func create_obstacle() -> void:
 	var obstacle = OBSTACLE.instantiate()
 	obstacle.on_plane_crash.connect(_on_plane_crash)
+	obstacle.on_player_scored.connect(_on_player_scored)
 	var viewport: Rect2 = get_viewport_rect()
 	obstacle.position.x = viewport.end.x + 150
 	var half = viewport.size.y / 2
@@ -28,3 +30,6 @@ func _on_timer_timeout() -> void:
 func _on_plane_crash() -> void:
 	on_obstacle_collide.emit()
 	stop_obstacle()
+
+func _on_player_scored() -> void:
+	on_player_scored.emit()

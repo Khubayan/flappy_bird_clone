@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://l1m1yptx56t" path="res://Assets/Sprites/Planes/planeRed3.png" id="4_ysstr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_68thi"]
-radius = 45.0
+radius = 36.1248
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sm4r7"]
 animations = [{
